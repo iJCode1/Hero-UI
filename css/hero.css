@@ -1,0 +1,112 @@
+body{
+  margin: 0;
+  min-block-size: 37.5rem;
+  block-size: 100vh;
+}
+.hero{
+  block-size: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(12, 1fr);
+}
+.hero::before{
+  content: '';
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  grid-row-end: span 5;
+  background-image: url('../assets/images/img.webp');
+  background-position: right center;
+  background-size: cover;
+}
+.hero-text{
+  /* border: 5px solid green; */
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  grid-row-end: span 7;
+  background-color: var(--black-1);
+  padding: 1.5rem;
+  gap: 1.5rem;
+  clip-path: var(--recorte);
+}
+.hero-logo{
+  inline-size: 4.8125rem;
+}
+.hero-logo img{
+  inline-size: 100%;
+  block-size: 100%;
+}
+.hero-title{
+  font: var(--headline2);
+  text-transform: uppercase;
+  margin: 0;
+  margin-block-end: .5rem;
+}
+.hero-details{
+  font: var(--body2-regular);
+  margin: 0;
+}
+.hero-cta{
+  color: var(--white);
+  text-decoration: none;
+  background-color: var(--primary);
+  display: inline-block;
+  text-align: center;
+  padding: 1rem 0;
+  border-radius: 3.125rem;
+  text-transform: uppercase;
+  font: var(--button);
+}
+@media screen and (min-width: 768px){
+  .hero::before{
+    grid-row-end: span 7;
+  }
+  .hero-text{
+    grid-row-end: span 5;
+  }
+  .hero-logo{
+    inline-size: 12.0625rem;
+  }
+}
+@media screen and (min-width: 1024px){
+  .hero{
+    --recorte: polygon(0 0, 100% 0%, 100% 90%, 0% 100%);
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 1fr;
+    clip-path: var(--recorte);
+    background-color: var(--black-1);
+  }
+  .hero::before{
+    grid-row: 1/-1;
+    grid-column: 7/-1;
+    --recorteText: polygon(0 0, 100% 0, 100% 100%, 10% 100%);
+    clip-path: var(--recorteText);
+    z-index: 5;
+    background-position: right center;
+  }
+  .hero-text{
+    grid-row: 1/-1;
+    grid-column: 1/8;
+    clip-path: none;
+    align-self: center;
+    max-inline-size: 28.125rem;
+    padding: 0 5rem;
+  }
+  .hero-logo{
+    inline-size: 10.1875rem;
+  }
+  .hero-cta{
+    inline-size: 10rem;
+  }
+}
+@media screen and (min-width: 1440px){
+  .hero::before{
+    grid-row: 1/-1;
+    grid-column: 6/-1;
+  }
+  .hero-text{
+    grid-row: 1/-1;
+    grid-column: 1/8;
+  }
+}
