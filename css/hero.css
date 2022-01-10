@@ -1,6 +1,6 @@
 body{
   margin: 0;
-  min-block-size: 37.5rem;
+  min-block-size: 50rem;
   block-size: 100vh;
 }
 .hero{
@@ -56,13 +56,12 @@ body{
   border-radius: 3.125rem;
   text-transform: uppercase;
   font: var(--button);
-  background-color: rgb(18, 105, 235);
 }
 .hero-cta:active{
   transform: scale(.9);
 }
 .hero-cta:hover{
-  transform: scale(.9);
+  --primary: #205cb6;
 }
 @media screen and (min-width: 768px){
   .hero::before{
